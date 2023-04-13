@@ -1,10 +1,13 @@
+
 class Deck {
     constructor(cards) {
       this.cards = cards;
     }
   
     shuffle() {
-      let currentIndex = this.cards.length, temporaryValue, randomIndex;
+      let currentIndex = this.cards.length;
+      let temporaryValue;
+      let randomIndex;
       while (0 !== currentIndex) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
@@ -19,6 +22,9 @@ class Deck {
       const shuffledDeck = this.shuffle();
       const cards = shuffledDeck.slice(0, numCards);
       return cards;
+    }
+    draw(){
+      return this.cards.pop();
     }
   }
 // const myDeck=new Deck(cards)

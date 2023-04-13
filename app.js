@@ -1,5 +1,9 @@
-const numPlayers = 3;
-const numCardsPerPlayer = 5;
+const Players = [
+{name:"A"},
+{name:"B"},
+{name:"C"},
+{name:"D"}];
+const Game=require("./helpers/game")
 
   function assignCardsToPlayers(numPlayers, numCardsPerPlayer) {
     const players = [];
