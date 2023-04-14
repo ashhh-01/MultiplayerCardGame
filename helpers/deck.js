@@ -4,7 +4,7 @@ class Deck {
       this.cards = cards;
     }
   
-    shuffle() {
+    shuffle() {//To randomly mix the cards
       let currentIndex = this.cards.length;
       let temporaryValue;
       let randomIndex;
@@ -17,7 +17,7 @@ class Deck {
       }
       return this.cards;
     }
-  
+    //fn to randomly assign cards to players
     getRandomCards(numCards=5) { //defaulting it to 5 
       const shuffledDeck = this.shuffle();
       const cards = shuffledDeck.slice(0, numCards);
