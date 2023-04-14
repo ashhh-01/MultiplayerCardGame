@@ -1,34 +1,40 @@
-const players = [
-{name:"A"},
-{name:"B"},
-{name:"C"},
-{name:"D"}];
 const Game=require("./helpers/game")
-var readline = require('readline-sync');
+const Deck =require("./helpers/deck")
+const card=require("./helpers/cards")
+let readline = require('readline-sync');
 
+const players = [
+    {name:"A"},
+    {name:"B"},
+    {name:"C"},
+    {name:"D"}];
+    
 const game=new Game(players);
+const deck=new Deck(card)
 let winner;
 let result;
- while(!winner&&result!==null){
+
+while(!winner&&result!==null){
     const currentPlayer=game.getCurrentPlayer();
     console.log(`Current Player: ${currentPlayer.name}` )
     console.log(`Cards: [${currentPlayer.hand}]`)
     console.log(`Stack: ${game.stackpile}`)
-    let cardNumber = readline.question("The number of the card you want to play? or 'quit': ");
+    let cardNumber = readline.question("The number of the card you want to play? or 'draw' to take a card or 'quit': ");
     if (cardNumber.toLowerCase() === "quit") {
         console.log("Ending game...");
         break; // exit the loop
       }
+    if(cardNumber.toLowerCase()=="draw"){
+        currentPlayer.hand[0].push(deck.getRandomCards(1)[0])
+        // console.log(currentPlayer.hand)
+    }else{
     result=game.playCard(parseInt(cardNumber));
-    if(result==true){
-        console.log("true")
-    }else if(result==false){
-        console.log("false")
-    }
-    else{
+    if(result){
         winner=result
-        console.log("yes")
-    }
-    
+        console.log(`${currentPlayer.name} is the winner`)
+    }else if(result=="draw"){
+        console.log("Draw")
+        break;
+    }}
 }
 

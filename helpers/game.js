@@ -70,17 +70,17 @@ class Game{
                 this.getNextPlayer().hand[0].push(this.deck.draw(),this.deck.draw(),this.deck.draw(),this.deck.draw())
             }
             if(player.hand[0].length==0){
-                return player;
+                return 0;
             }
             this.currentPlayerIndex=(this.currentPlayerIndex+1)
         }else{
             player.hand.push(this.deck.draw())
             if(this.deck.cards.length==0){
-                return null
+                return draw
             }
         }
         console.log(player.hand[0].length)
-        return false;
+        // return false;
         }
 }
 
@@ -93,9 +93,11 @@ module.exports=Game;
 // const mygame=new Game(players)
 // let player=mygame.getCurrentPlayer();
 
-// console.log(player.hand[0])
-// console.log(mygame.stackpile.unshift("a","b"))
-// console.log(player.hand[0].splice(1,1))
+// // console.log(player.hand[0])
+// // console.log(mygame.stackpile.unshift("a","b"))
+// // console.log(player.hand[0].splice(1,1))
+// // console.log(player.hand[0])
+// console.log(player.hand[0].push(mygame.deck.getRandomCards(1)))
 // console.log(player.hand[0])
 
 
