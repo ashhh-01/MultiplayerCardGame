@@ -14,7 +14,7 @@ let result;
     console.log(`Current Player: ${currentPlayer.name}` )
     console.log(`Cards: [${currentPlayer.hand}]`)
     console.log(`Stack: ${game.stackpile}`)
-    let cardNumber = readline.question("The number of the card you want to play?: ");
+    let cardNumber = readline.question("The number of the card you want to play? or 'quit': ");
     if (cardNumber.toLowerCase() === "quit") {
         console.log("Ending game...");
         break; // exit the loop
