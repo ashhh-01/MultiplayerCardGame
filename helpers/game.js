@@ -24,13 +24,20 @@ class Game{
     getCurrentPlayer(){
         return this.players[this.currentPlayerIndex]
     }
-    getNextPlayer(){
-    if(this.currentPlayerIndex!=this.players.length){
-        return this.players[this.currentPlayerIndex+1]
-    }
-    else{
-        return this.players[0]
-    }
+    getNextPlayer() {
+        this.currentPlayerIndex++;
+        if(this.currentPlayerIndex==this.players.length){
+            this.currentPlayerIndex=0
+            return this.player[this.currentPlayerIndex];
+        }else{
+            return this.players[this.currentPlayerIndex]
+        }
+        // if (this.currentPlayerIndex == this.players.length - 1) {
+        //     this.currentPlayerIndex = 0;
+        // } else {
+        //     this.currentPlayerIndex++;
+        // }
+        // return this.players[this.currentPlayerIndex];
     }
     getPrevPlayer(){
         if(this.currentPlayerIndex!=0){
@@ -42,10 +49,10 @@ class Game{
     playCard(cardNumber){
         const player=this.getCurrentPlayer();
         const card=player.hand[0][cardNumber];
-        if(cards.indexOf(card)!==-1){
+        if(cards.indexOf(card)!==-1){ //Checking if the card is in the array cards //Validation
             console.log("here")
-            player.hand[0].splice(cardNumber,1);
-            this.stackpile.unshift(card)
+            player.hand[0].splice(cardNumber,1);//Removes the card from the players hand
+            this.stackpile.unshift(card) //Adds the current player card to the stack
             if(card=="Ace of Spades"){// Skip the next player 
                 this.getNextPlayer()
             }
@@ -78,5 +85,18 @@ class Game{
 }
 
 module.exports=Game;
+// const players = [
+//     {name:"A"},
+//     {name:"B"},
+//     {name:"C"},
+//     {name:"D"}];
 // const mygame=new Game(players)
-// console.log(mygame.playCard(0))
+// let player=mygame.getCurrentPlayer();
+
+// console.log(player.hand[0])
+// console.log(mygame.stackpile.unshift("a","b"))
+// console.log(player.hand[0].splice(1,1))
+// console.log(player.hand[0])
+
+
+
