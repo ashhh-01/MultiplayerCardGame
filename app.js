@@ -19,16 +19,16 @@ while(!winner&&result!==null){
     console.log(`Current Player: ${currentPlayer.name}` )
     console.log(`Cards: [${currentPlayer.hand}]`)
     console.log(`Stack: ${game.stackpile}`)
-    let cardNumber = readline.question("The number of the card you want to play? or 'draw' to take a card or 'quit': ");
-    if (cardNumber.toLowerCase() === "quit") {
+    let cardNumber = readline.question("The number of the card you want to play? or 'draw' to take a card or 'quit': "); //Take User input
+    if (cardNumber.toLowerCase() === "quit") {//Quit the game
         console.log("Ending game...");
         break; // exit the loop
       }
-    if(cardNumber.toLowerCase()=="draw"){
+    if(cardNumber.toLowerCase()=="draw"){//Take an extra card
         currentPlayer.hand[0].push(deck.getRandomCards(1)[0])
         // console.log(currentPlayer.hand)
     }else{
-    result=game.playCard(parseInt(cardNumber));
+    result=game.playCard(parseInt(cardNumber));//Play a card
     if(result){
         winner=result
         console.log(`${currentPlayer.name} is the winner`)
