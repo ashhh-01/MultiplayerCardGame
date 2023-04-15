@@ -22,9 +22,13 @@ class Game{
     //     return currentcard;
     // }
     getCurrentPlayer(){
+        if(this.currentPlayerIndex==this.players.length){
+            this.currentPlayerIndex=0
+            return this.players[this.currentPlayerIndex]
+        }else{
         return this.players[this.currentPlayerIndex]
-    }
-    getNextPlayer() {
+    }}
+    getNextPlayer() { //Length =3  //2-->3!=4
         this.currentPlayerIndex++;
         if(this.currentPlayerIndex==this.players.length){
             this.currentPlayerIndex=0

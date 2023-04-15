@@ -27,6 +27,7 @@ while(!winner&&result!==null){
     if(cardNumber.toLowerCase()=="draw"){//Take an extra card
         currentPlayer.hand[0].push(deck.getRandomCards(1)[0])
         // console.log(currentPlayer.hand)
+        game.getNextPlayer()
     }else{
     result=game.playCard(parseInt(cardNumber));//Play a card
     if(result){
