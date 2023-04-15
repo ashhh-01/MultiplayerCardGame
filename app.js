@@ -23,7 +23,7 @@ while (!winner && result !== null) {
     console.log("Ending game...");
     break; // exit the loop
   }
-  if (cardNumber.toLowerCase() == "draw") {
+  if (cardNumber.toLowerCase() === "draw") {
     //Take an extra card
     currentPlayer.hand[0].push(deck.getRandomCards(1)[0]);
     // console.log(currentPlayer.hand)
@@ -33,7 +33,7 @@ while (!winner && result !== null) {
     if (result) {
       winner = result;
       console.log(`${currentPlayer.name} is the winner`);
-    } else if (result == "draw") {
+    } else if (result === "draw") {
       console.log("Draw");
       break;
     }

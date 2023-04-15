@@ -22,7 +22,7 @@ class Game {
   //     return currentcard;
   // }
   getCurrentPlayer() {
-    if (this.currentPlayerIndex == this.players.length) {
+    if (this.currentPlayerIndex === this.players.length) {
       this.currentPlayerIndex = 0;
       return this.players[this.currentPlayerIndex];
     } else {
@@ -32,7 +32,7 @@ class Game {
   getNextPlayer() {
     //Length =3  //2-->3!=4
     this.currentPlayerIndex++;
-    if (this.currentPlayerIndex == this.players.length) {
+    if (this.currentPlayerIndex === this.players.length) {
       this.currentPlayerIndex = 0;
       return this.players[this.currentPlayerIndex];
     } else {
@@ -46,7 +46,7 @@ class Game {
     // return this.players[this.currentPlayerIndex];
   }
   getPrevPlayer() {
-    if (this.currentPlayerIndex != 0) {
+    if (this.currentPlayerIndex !== 0) {
       return this.players[this.currentPlayerIndex - 1];
     } else {
       return this.players[players.length - 1];
@@ -57,19 +57,18 @@ class Game {
     const card = player.hand[0][cardNumber];
     if (cards.indexOf(card) !== -1) {
       //Checking if the card is in the array cards //Validation
-      console.log("here");
       player.hand[0].splice(cardNumber, 1); //Removes the card from the players hand
       this.stackpile.unshift(card); //Adds the current player card to the stack
-      if (card == "Ace of Spades") {
+      if (card === "Ace of Spades") {
         // Skip the next player
         this.getNextPlayer();
       }
       //Reverse the sequence
       else if (
         card === "King of Clubs" ||
-        card == "King of Diamonds" ||
-        card == "King of Spades" ||
-        card == "King of Hearts"
+        card === "King of Diamonds" ||
+        card === "King of Spades" ||
+        card === "King of Hearts"
       ) {
         this.players.reverse();
         this.currentPlayerIndex =
@@ -78,18 +77,18 @@ class Game {
       //Give the next player 2 extra cards
       else if (
         card === "Queen of Clubs" ||
-        card == "Queen of Diamonds" ||
-        card == "Queen of Spades" ||
-        card == "Queen of Hearts"
+        card === "Queen of Diamonds" ||
+        card === "Queen of Spades" ||
+        card === "Queen of Hearts"
       ) {
         this.getNextPlayer().hand[0].push(this.deck.draw(), this.deck.draw());
       }
       //Give the next player 4 extra cards
       else if (
         card === "Jack of Clubs" ||
-        card == "Jack of Diamonds" ||
-        card == "Jack of Spades" ||
-        card == "Jack of Hearts"
+        card === "Jack of Diamonds" ||
+        card === "Jack of Spades" ||
+        card === "Jack of Hearts"
       ) {
         this.getNextPlayer().hand[0].push(
           this.deck.draw(),
@@ -104,11 +103,11 @@ class Game {
       this.currentPlayerIndex = this.currentPlayerIndex + 1;
     } else {
       player.hand.push(this.deck.draw());
-      if (this.deck.cards.length == 0) {
+      if (this.deck.cards.length === 0) {
         return draw;
       }
     }
-    console.log(player.hand[0].length);
+    // console.log(player.hand[0].length);
     // return false;
   }
 }

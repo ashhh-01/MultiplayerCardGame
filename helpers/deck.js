@@ -28,6 +28,5 @@ class Deck {
     return this.cards.pop();
   }
 }
-// const myDeck=new Deck(cards)
-// console.log(myDeck.getRandomCards())
+
 module.exports = Deck;
